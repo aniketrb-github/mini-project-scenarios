@@ -1,0 +1,47 @@
+CRUD Operations for project portal management
+
+1.	Projects
+	a.	New Project Form	POST: createProject
+	b.	List of projects	GET: getAllProjects
+	c.	Project Details		GET: getProjectDetails
+
+2.	User Stories
+	a.	New User Stories		POST: createUserStory
+	b.	List of User Stories	GET: getAllUserStories
+	c.	User Stories Details	GET: getDetailsOfAUserStory
+
+3.	Employees
+	a.	New Employee Form		POST: createEmployee
+	b.	Update Employee Form	PUT: updateEmployee
+	c.	List of Employees		GET: getAllEmployees
+	d.	Details of Employee		GET: getEmpoyeeDetails
+
+4.	Tasks
+	a.	New Task Form		POST: createTask
+	b.	Tasks List			GET: getAllTasks
+	c.	Task Details		GET: getTaskDetails
+
+5.	Bugs
+	a.	List of Bugs		GET: getAllBugs
+	b.	Details of Bug		GET: getBugDetails
+	c.	New Bug Form		POST: createBug
+	d.	Update Bug Form		PUT: updateBug
+
+6.	Authentication
+	a.	To see the details, you must be an authenticated user
+	- create an application session while user-login for a 24hour default time period
+	- validate user on login & do necessary exception handling
+	
+	b.	You should be able to see the details of the project to which you have been assigned
+	- on employee login, get all his related proejcts & tasks only
+	- in short th details a employee should see on his home page/dashboard
+	
+	c.	You should be able to filter the details of the dashboard using Start Date and End Date of Project Tasks and Bugs
+	- getProjectByDate(startDate, endDate)
+	- getTasksByDate(startDate, endDate)
+	- getBugsByDate(startDate, endDate)
+
+7.	Dashboard
+	a.	Should display Project Specific information like Tasks, Bugs in a Chart format using High charts (Or Charts API of your choice)
+	- use the 3rd party API like Charts API or any other to show some graphical representation of data
+
