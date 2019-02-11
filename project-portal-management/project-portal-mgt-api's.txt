@@ -1,4 +1,4 @@
-CRUD Operations for project portal management
+CRUD Operations for project portal management.
 
 1.	Projects
 	a.	New Project			POST: createProject
