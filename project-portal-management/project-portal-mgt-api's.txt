@@ -1,33 +1,28 @@
 CRUD Operations for project portal management
 
 1.	Projects
-	a.	New Project Form	POST: createProject
+	a.	New Project			POST: createProject
 	b.	List of projects	GET: getAllProjects
 	c.	Project Details		GET: getProjectDetails
 
-2.	User Stories
-	a.	New User Stories		POST: createUserStory
-	b.	List of User Stories	GET: getAllUserStories
-	c.	User Stories Details	GET: getDetailsOfAUserStory
+2.	Employees
+	a.	New Employee		POST: createEmployee
+	b.	Update Employee		PUT: updateEmployee
+	c.	List of Employees	GET: getAllEmployees
+	d.	Employee Details	GET: getEmpoyeeDetails
 
-3.	Employees
-	a.	New Employee Form		POST: createEmployee
-	b.	Update Employee Form	PUT: updateEmployee
-	c.	List of Employees		GET: getAllEmployees
-	d.	Details of Employee		GET: getEmpoyeeDetails
-
-4.	Tasks
-	a.	New Task Form		POST: createTask
+3.	Tasks
+	a.	New Task			POST: createTask
 	b.	Tasks List			GET: getAllTasks
 	c.	Task Details		GET: getTaskDetails
 
-5.	Bugs
+4.	Bugs
 	a.	List of Bugs		GET: getAllBugs
 	b.	Details of Bug		GET: getBugDetails
-	c.	New Bug Form		POST: createBug
-	d.	Update Bug Form		PUT: updateBug
+	c.	New Bug				POST: createBug
+	d.	Update Bug			PUT: updateBug
 
-6.	Authentication
+5.	Authentication
 	a.	To see the details, you must be an authenticated user
 	- create an application session while user-login for a 24hour default time period
 	- validate user on login & do necessary exception handling
@@ -41,7 +36,7 @@ CRUD Operations for project portal management
 	- getTasksByDate(startDate, endDate)
 	- getBugsByDate(startDate, endDate)
 
-7.	Dashboard
+6.	Dashboard
 	a.	Should display Project Specific information like Tasks, Bugs in a Chart format using High charts (Or Charts API of your choice)
 	- use the 3rd party API like Charts API or any other to show some graphical representation of data
 

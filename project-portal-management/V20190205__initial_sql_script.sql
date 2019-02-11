@@ -1,5 +1,5 @@
-DROP DATABASE `project_portal_mgt_db`
-CREATE SCHEMA `project_portal_mgt_db` ;
+-- DROP DATABASE `project_portal_mgt_db` ;
+-- CREATE SCHEMA `project_portal_mgt_db` ;
 
 -- TABLE: PROJECTS
 CREATE TABLE tbl_projects (
@@ -16,7 +16,6 @@ CREATE TABLE tbl_employees (
 `email` VARCHAR(128) UNIQUE NOT NULL,
 `designation` VARCHAR(128) NOT NULL,
 `platform` VARCHAR(64) NULL,
-`image` VARCHAR(128) NULL,
 `project_id` INT(8) NOT NULL,	-- foreignKey1
 `deleted` TINYINT(1) NOT NULL DEFAULT 0,
 PRIMARY KEY(`id`),
