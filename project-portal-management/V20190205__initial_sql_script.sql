@@ -6,6 +6,10 @@ CREATE TABLE tbl_projects (
 `id` INT(8) NOT NULL AUTO_INCREMENT,
 `name` VARCHAR(128) NOT NULL,
 `deleted` TINYINT(1) NOT NULL DEFAULT 0,
+`resource_strength` INT(3) NOT NULL DEFAULT 1,
+`start_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+`end_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+`code` VARCHAR(10) NOT NULL,
 PRIMARY KEY(`id`)
 );
 
@@ -18,6 +22,7 @@ CREATE TABLE tbl_employees (
 `platform` VARCHAR(64) NULL,
 `project_id` INT(8) NOT NULL,	-- foreignKey1
 `deleted` TINYINT(1) NOT NULL DEFAULT 0,
+`joining_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 PRIMARY KEY(`id`),
 KEY `tbl_projects_fk1` (`project_id`),
 CONSTRAINT `tbl_projects_fk1` FOREIGN KEY (`project_id`) REFERENCES `tbl_projects` (`id`)
