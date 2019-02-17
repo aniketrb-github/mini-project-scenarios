@@ -4,6 +4,8 @@ CRUD Operations for project portal management.
 	a.	New Project			POST: createProject
 	b.	List of projects	GET: getAllProjects
 	c.	Project Details		GET: getProjectDetails
+	d. 	Update Project 		PUT: updateProjectDetails
+	e. 	Delete Project		DELETE: deleteProject
 
 2.	Employees
 	a.	New Employee		POST: createEmployee
