@@ -1,0 +1,38 @@
+------------- POST API: CREATE_PROJECTS -----------
+{	"name":"Learning Field",
+	"resourceStrength":"4",
+	"startDate":"2019-01-15",
+	"endDate":"2019-12-29",
+	"projectCode":"ICG_VST_LF"
+}
+{	"name":"Flexible Learning Object Editor(FLOE4)",
+	"resourceStrength":"6",
+	"startDate":"2018-11-15",
+	"endDate":"2019-03-29",
+	"projectCode":"ICG_VST_FLOE4"
+}
+{	"name":"Demo",
+	"resourceStrength":"12",
+	"startDate":"2019-12-29",
+	"endDate":"2022-12-29",
+	"projectCode":"ICG_VST_DEMO"
+}
+{	"name":"Apache HTTPD Config generator utility",
+	"resourceStrength":"1",
+	"startDate":"2018-04-19",
+	"endDate":"2019-05-22",
+	"projectCode":"ICG_VST_AHCGU"
+}
+{	"name":"Online University Press(OUP)",
+	"resourceStrength":"15",
+	"startDate":"2016-04-19",
+	"endDate":"2022-05-29",
+	"projectCode":"ICG_VST_OUP"
+}
+{	"name":"Bridge",
+	"resourceStrength":"4",
+	"startDate":"2015-11-29",
+	"endDate":"2022-09-19",
+	"projectCode":"ICG_VST_BRDG"
+}
+---------------------------------------------------
