@@ -1,4 +1,4 @@
-------------- POST API: CREATE_PROJECTS -----------
+------------- POST API:CREATE_PROJECTS ------------------------------
 {	"name":"Learning Field",
 	"resourceStrength":"4",
 	"startDate":"2019-01-15",
@@ -35,4 +35,21 @@
 	"endDate":"2022-09-19",
 	"projectCode":"ICG_VST_BRDG"
 }
----------------------------------------------------
+-------------------- POST API:CREATE_EMPLOYEES ----------------------
+{	"name":"Rajesh Sharma",
+	"designation":"Associate Technology",
+	"platform":"Java Backend",
+	"email":"rajesh12sharma@gmail.com",
+	"projectCode":"ICG_VST_FLOE4",
+	"joiningDate":"2018-12-19"
+}
+{	"name":"Aniket Bharsakale",
+	"designation":"Associate Technology",
+	"platform":"Java Backend",
+	"email":"aniket24bharsakale@gmail.com",
+	"projectCode":"ICG_VST_LF",
+	"joiningDate":"2019-01-14"
+}
+-------------------- POST API:CREATE_TASKS --------------------------
+
+-------------------- POST API:CREATE_BUGS ---------------------------
