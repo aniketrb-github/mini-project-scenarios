@@ -45,11 +45,9 @@ CONSTRAINT `tbl_employees_fk1` FOREIGN KEY (`employee_id`) REFERENCES `tbl_emplo
 );
 
 -- TABLE: BUG STATUSES
-CREATE TABLE tbl_bug_status (
+CREATE TABLE tbl_status (
 `id` INT(8) NOT NULL,
 `name` VARCHAR(32) NOT NULL,
-/*`start_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-`end_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,*/
 `deleted` TINYINT(1) NOT NULL DEFAULT 0,
 PRIMARY KEY(`id`)
 );
@@ -60,14 +58,14 @@ CREATE TABLE tbl_bugs (
 `name` VARCHAR(32) NOT NULL,
 `description` VARCHAR(128) NOT NULL,
 `task_id` INT(8) NOT NULL,		-- foreignKey1
-`bug_status_id` INT(2) NOT NULL,-- foreignKey2
+`status_id` INT(2) NOT NULL,-- foreignKey2
 `employee_id` INT(8) NOT NULL,  -- foreignKey3
 `deleted` TINYINT(1) NOT NULL DEFAULT 0,
 PRIMARY KEY(`id`),
 KEY `tbl_tasks_fk1` (`task_id`),
 CONSTRAINT `tbl_tasks_fk1` FOREIGN KEY (`task_id`) REFERENCES `tbl_tasks` (`id`),
-KEY `tbl_bug_status_fk1` (`bug_status_id`),
-CONSTRAINT `tbl_bug_status_fk1` FOREIGN KEY (`bug_status_id`) REFERENCES `tbl_bug_status` (`id`),
+KEY `tbl_status_fk1` (`status_id`),
+CONSTRAINT `tbl_status_fk1` FOREIGN KEY (`status_id`) REFERENCES `tbl_status` (`id`),
 KEY `tbl_employees_fk2` (`employee_id`),
 CONSTRAINT `tbl_employees_fk2` FOREIGN KEY (`employee_id`) REFERENCES `tbl_employees` (`id`)
 );
