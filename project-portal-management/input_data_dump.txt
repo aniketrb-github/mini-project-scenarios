@@ -50,6 +50,15 @@
 	"projectCode":"ICG_VST_LF",
 	"joiningDate":"2019-01-14"
 }
+
+--------------------- MASTER TABLE STATUS INSERT QUERIES ------------
+
+INSERT INTO `project_portal_mgt_db`.`tbl_status` (`id`, `deleted`, `name`) VALUES (4, 0, "CLOSED"); 
+INSERT INTO `project_portal_mgt_db`.`tbl_status` (`id`, `deleted`, `name`) VALUES (3, 0, "RESOLVED");
+INSERT INTO `project_portal_mgt_db`.`tbl_status` (`id`, `deleted`, `name`) VALUES (2, 0, "IN PROGRESS");
+INSERT INTO `project_portal_mgt_db`.`tbl_status` (`id`, `deleted`, `name`) VALUES (1, 0, "OPEN");
+
 -------------------- POST API:CREATE_TASKS --------------------------
+
 
 -------------------- POST API:CREATE_BUGS ---------------------------
