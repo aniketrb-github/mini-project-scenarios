@@ -59,6 +59,14 @@ INSERT INTO `project_portal_mgt_db`.`tbl_status` (`id`, `deleted`, `name`) VALUE
 INSERT INTO `project_portal_mgt_db`.`tbl_status` (`id`, `deleted`, `name`) VALUES (1, 0, "OPEN");
 
 -------------------- POST API:CREATE_TASKS --------------------------
-
-
+{
+   "name":"LearningField_BridgePaymentModule",
+   "description":"Develop a Payment portal which accepts subscription payments from users",
+   "projectCode":"ICG_VST_LF",
+   "startDate":"2019-02-23",
+   "endDate":"2019-03-15",
+   "assigneeId":2,
+   "reporterId":1,
+   "statusId":2
+}
 -------------------- POST API:CREATE_BUGS ---------------------------

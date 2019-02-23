@@ -32,16 +32,20 @@ CONSTRAINT `tbl_projects_fk1` FOREIGN KEY (`project_id`) REFERENCES `tbl_project
 CREATE TABLE tbl_tasks (
 `id` INT(8) NOT NULL AUTO_INCREMENT,
 `name` VARCHAR(128) NOT NULL,
+`description` VARCHAR(128) NOT NULL,
 `start_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 `end_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 `project_id` INT(8) NOT NULL,	-- foreignKey1
-`employee_id` INT(8) NOT NULL,  -- foreignKey2
+`assigned_to` INT(8) NOT NULL,  -- foreignKey2
+`reported_by` INT(8) NOT NULL,  -- foreignKey3
 `deleted` TINYINT(1) NOT NULL DEFAULT 0,
 PRIMARY KEY(`id`),
 KEY `tbl_projects_fk1` (`project_id`),
 CONSTRAINT `tbl_projects_fk1` FOREIGN KEY (`project_id`) REFERENCES `tbl_projects` (`id`),
-KEY `tbl_employees_fk1` (`employee_id`),
-CONSTRAINT `tbl_employees_fk1` FOREIGN KEY (`employee_id`) REFERENCES `tbl_employees` (`id`)
+KEY `tbl_employees_fk1` (`assigned_to`),
+CONSTRAINT `tbl_employees_fk1` FOREIGN KEY (`assigned_to`) REFERENCES `tbl_employees` (`id`),
+KEY `tbl_employees_fk2` (reported_by),
+CONSTRAINT `tbl_employees_fk2` FOREIGN KEY (`reported_by`) REFERENCES `tbl_employees` (`id`)
 );
 
 -- TABLE: BUG STATUSES
