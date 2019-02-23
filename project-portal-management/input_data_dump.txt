@@ -1,65 +1,118 @@
-------------- POST API:CREATE_PROJECTS ------------------------------
-{	"name":"Learning Field",
+++++++++++++++++++++++ cURL Commands for Project Portal Management ++++++++++++++++++++++++++++++
+
+1) GET PROJECTS - GET API
+1.a) gets all projects
+curl -X GET \
+  http://localhost:8080/projects \
+  -H 'Postman-Token: a460f24c-8c63-44e9-b01c-fe4280b6ea19' \
+  -H 'cache-control: no-cache'
+
+1.b) get a project by the proejctId 
+curl -X GET \
+  'http://localhost:8080/projects?id=4' \
+  -H 'Postman-Token: 02f8a7e6-32ae-4ff9-abee-cbe3285ed02d' \
+  -H 'cache-control: no-cache'
+
+1.c) get a project by projectCode
+curl -X GET \
+  'http://localhost:8080/projects?code=ICG_VST_AHCGU' \
+  -H 'Postman-Token: bea5f6eb-4b1d-428e-a621-d273d32df42e' \
+  -H 'cache-control: no-cache'
+  
+2) CREATE A PROJECT - POST API
+curl -X POST \
+  http://localhost:8080/projects \
+  -H 'Content-Type: application/json' \
+  -H 'Postman-Token: b18bfe9c-ff4f-47ff-8694-46ab1a278144' \
+  -H 'cache-control: no-cache' \
+  -d '{	"name":"Learning Field",
 	"resourceStrength":"4",
 	"startDate":"2019-01-15",
 	"endDate":"2019-12-29",
 	"projectCode":"ICG_VST_LF"
-}
-{	"name":"Flexible Learning Object Editor(FLOE4)",
-	"resourceStrength":"6",
-	"startDate":"2018-11-15",
-	"endDate":"2019-03-29",
-	"projectCode":"ICG_VST_FLOE4"
-}
-{	"name":"Demo",
-	"resourceStrength":"12",
-	"startDate":"2019-12-29",
-	"endDate":"2022-12-29",
-	"projectCode":"ICG_VST_DEMO"
-}
-{	"name":"Apache HTTPD Config generator utility",
-	"resourceStrength":"1",
-	"startDate":"2018-04-19",
-	"endDate":"2019-05-22",
-	"projectCode":"ICG_VST_AHCGU"
-}
-{	"name":"Online University Press(OUP)",
-	"resourceStrength":"15",
-	"startDate":"2016-04-19",
-	"endDate":"2022-05-29",
-	"projectCode":"ICG_VST_OUP"
-}
-{	"name":"Bridge",
-	"resourceStrength":"4",
-	"startDate":"2015-11-29",
-	"endDate":"2022-09-19",
-	"projectCode":"ICG_VST_BRDG"
-}
--------------------- POST API:CREATE_EMPLOYEES ----------------------
-{	"name":"Rajesh Sharma",
+}'
+
+3) UPDATE A PROJECT BY PROJECT ID - PUT API
+curl -X PUT \
+  http://localhost:8080/projects/7 \
+  -H 'Content-Type: application/json' \
+  -H 'Postman-Token: 38ecc51e-ad75-454a-99b8-962a6674365b' \
+  -H 'cache-control: no-cache' \
+  -d '{
+        "name": "North House",
+        "resourceStrength": 20
+    }'
+	
+4) DELETE A PROJECT
+curl -X DELETE \
+  http://localhost:8080/projects/6 \
+  -H 'Postman-Token: 0170820e-c5c1-433c-b8f3-e752ab4a542f' \
+  -H 'cache-control: no-cache'
+
+-------------------- EMPLOYEES ----------------------
+1) CREATE EMPLOYEE - POST API
+curl -X POST \
+  http://localhost:8080/employees \
+  -H 'Content-Type: application/json' \
+  -H 'Postman-Token: f67bfce9-0a7a-4a4e-b72f-7b671cba9281' \
+  -H 'cache-control: no-cache' \
+  -d '{	"name":"Aniket Bharsakale",
 	"designation":"Associate Technology",
 	"platform":"Java Backend",
-	"email":"rajesh12sharma@gmail.com",
-	"projectCode":"ICG_VST_FLOE4",
-	"joiningDate":"2018-12-19"
-}
-{	"name":"Aniket Bharsakale",
-	"designation":"Associate Technology",
-	"platform":"Java Backend",
-	"email":"aniket24bharsakale@gmail.com",
+	"email":"aniketbharsakale@gmail.com",
 	"projectCode":"ICG_VST_LF",
 	"joiningDate":"2019-01-14"
-}
+}'
 
---------------------- MASTER TABLE STATUS INSERT QUERIES ------------
+2) GET EMPLOYEE - GET API (GET EMPLOYEE BY EMPLOYEE_ID)
+curl -X GET \
+  'http://localhost:8080/employees?id=1' \
+  -H 'Postman-Token: 7c450965-e4dc-472d-827f-7087767a1aba' \
+  -H 'cache-control: no-cache'
 
-INSERT INTO `project_portal_mgt_db`.`tbl_status` (`id`, `deleted`, `name`) VALUES (4, 0, "CLOSED"); 
-INSERT INTO `project_portal_mgt_db`.`tbl_status` (`id`, `deleted`, `name`) VALUES (3, 0, "RESOLVED");
-INSERT INTO `project_portal_mgt_db`.`tbl_status` (`id`, `deleted`, `name`) VALUES (2, 0, "IN PROGRESS");
-INSERT INTO `project_portal_mgt_db`.`tbl_status` (`id`, `deleted`, `name`) VALUES (1, 0, "OPEN");
+3) UPDATE EMPLOYEE DETAILS - PUT API (UPDATE EMPLOYEE BY EMPLOYEE ID)
+curl -X PUT \
+  http://localhost:8080/employees/1 \
+  -H 'Content-Type: application/json' \
+  -H 'Postman-Token: c34d9262-73f1-431e-9225-448f3287f2fc' \
+  -H 'cache-control: no-cache' \
+  -d '{	"name":"Pratik Ladkat",
+	"designation":"Associate Technology"
+}'
+
+4) DELETE EMPLOYEE - DELETE API (DELETE EMPLOYEE BY EMPLOYEE ID)
+curl -X DELETE \
+  http://localhost:8080/employees/1 \
+  -H 'Postman-Token: c4391189-db92-413e-820c-a0cb83e23b59' \
+  -H 'cache-control: no-cache'
 
 -------------------- POST API:CREATE_TASKS --------------------------
-{
+1) CREATE TASK - POST API
+curl -X POST \
+  http://localhost:8080/tasks \
+  -H 'Content-Type: application/json' \
+  -H 'Postman-Token: 39c3e500-a6a5-4eab-b8d6-3aeca3ca7f17' \
+  -H 'cache-control: no-cache' \
+  -d '{
+   "name":"LearningField_OnyxContentPush_DEV",
+   "description":"Perform the Onyx Content Update for 100 books on DEV environment",
+   "projectCode":"ICG_VST_LF",
+   "startDate":"2019-02-26",
+   "endDate":"2019-02-26",
+   "assigneeId":2,
+   "reporterId":1,
+   "statusId":1
+}'
+
+2) GET TASK - GET API 
+
+2.a)GET ALL TASKS IN DB
+curl -X GET \
+  http://localhost:8080/tasks \
+  -H 'Content-Type: application/json' \
+  -H 'Postman-Token: 755415d0-8a0d-48a3-ba82-64eb8242fff2' \
+  -H 'cache-control: no-cache' \
+  -d '{
    "name":"LearningField_BridgePaymentModule",
    "description":"Develop a Payment portal which accepts subscription payments from users",
    "projectCode":"ICG_VST_LF",
@@ -68,5 +121,52 @@ INSERT INTO `project_portal_mgt_db`.`tbl_status` (`id`, `deleted`, `name`) VALUE
    "assigneeId":2,
    "reporterId":1,
    "statusId":2
-}
+}'
+
+2.b) GET TASKS BY PROJECT CODE
+curl -X GET \
+  'http://localhost:8080/tasks?projectCode=ICG_VST_LF' \
+  -H 'Content-Type: application/json' \
+  -H 'Postman-Token: 510ec34b-41c4-4292-98c7-ceead1870a0d' \
+  -H 'cache-control: no-cache' \
+  -d '{
+   "name":"LearningField_BridgePaymentModule",
+   "description":"Develop a Payment portal which accepts subscription payments from users",
+   "projectCode":"ICG_VST_LF",
+   "startDate":"2019-02-23",
+   "endDate":"2019-03-15",
+   "assigneeId":2,
+   "reporterId":1,
+   "statusId":2
+}'
+
+2.c) GET ALL TASKS FOR GIVEN STATUS ID
+curl -X GET \
+  'http://localhost:8080/tasks?statusId=1' \
+  -H 'Content-Type: application/json' \
+  -H 'Postman-Token: 7cb28c2a-115a-48af-bffc-626640179dcf' \
+  -H 'cache-control: no-cache'
+
+3) GET ALL TASKS FOR GIVEN REPORTER ID
+curl -X GET \
+  'http://localhost:8080/tasks?reporterId=1' \
+  -H 'Content-Type: application/json' \
+  -H 'Postman-Token: ae3c2329-0983-4ea6-b96d-e3882798571c' \
+  -H 'cache-control: no-cache'
+
+4)  GET ALL TASKS FOR GIVEN ASSIGNEE ID
+curl -X GET \
+  'http://localhost:8080/tasks?assigneeId=2' \
+  -H 'Content-Type: application/json' \
+  -H 'Postman-Token: e494f0c4-41f7-4cc5-8c6d-84596bacbb0d' \
+  -H 'cache-control: no-cache'
+
 -------------------- POST API:CREATE_BUGS ---------------------------
+
+--------------------- MASTER TABLE STATUS INSERT QUERIES ------------
+
+INSERT INTO `project_portal_mgt_db`.`tbl_status` (`id`, `deleted`, `name`) VALUES (5, 0, "REOPENED");
+INSERT INTO `project_portal_mgt_db`.`tbl_status` (`id`, `deleted`, `name`) VALUES (4, 0, "CLOSED"); 
+INSERT INTO `project_portal_mgt_db`.`tbl_status` (`id`, `deleted`, `name`) VALUES (3, 0, "RESOLVED");
+INSERT INTO `project_portal_mgt_db`.`tbl_status` (`id`, `deleted`, `name`) VALUES (2, 0, "IN PROGRESS");
+INSERT INTO `project_portal_mgt_db`.`tbl_status` (`id`, `deleted`, `name`) VALUES (1, 0, "OPEN");
