@@ -9,7 +9,7 @@ CREATE TABLE tbl_projects (
 `resource_strength` INT(3) NOT NULL DEFAULT 1,
 `start_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 `end_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-`code` VARCHAR(10) NOT NULL,
+`code` VARCHAR(10) NOT NULL UNIQUE,
 PRIMARY KEY(`id`)
 );
 
@@ -38,6 +38,7 @@ CREATE TABLE tbl_tasks (
 `project_id` INT(8) NOT NULL,	-- foreignKey1
 `assigned_to` INT(8) NOT NULL,  -- foreignKey2
 `reported_by` INT(8) NOT NULL,  -- foreignKey3
+`status_id` INT(2) NOT NULL,	-- foreignKey4
 `deleted` TINYINT(1) NOT NULL DEFAULT 0,
 PRIMARY KEY(`id`),
 KEY `tbl_projects_fk1` (`project_id`),
@@ -45,7 +46,9 @@ CONSTRAINT `tbl_projects_fk1` FOREIGN KEY (`project_id`) REFERENCES `tbl_project
 KEY `tbl_employees_fk1` (`assigned_to`),
 CONSTRAINT `tbl_employees_fk1` FOREIGN KEY (`assigned_to`) REFERENCES `tbl_employees` (`id`),
 KEY `tbl_employees_fk2` (reported_by),
-CONSTRAINT `tbl_employees_fk2` FOREIGN KEY (`reported_by`) REFERENCES `tbl_employees` (`id`)
+CONSTRAINT `tbl_employees_fk2` FOREIGN KEY (`reported_by`) REFERENCES `tbl_employees` (`id`),
+KEY `tbl_status_fk1` (`status_id`),
+CONSTRAINT `tbl_status_fk1` FOREIGN KEY (`status_id`) REFERENCES `tbl_status` (`id`)
 );
 
 -- TABLE: BUG STATUSES
@@ -62,7 +65,7 @@ CREATE TABLE tbl_bugs (
 `name` VARCHAR(32) NOT NULL,
 `description` VARCHAR(128) NOT NULL,
 `task_id` INT(8) NOT NULL,		-- foreignKey1
-`status_id` INT(2) NOT NULL,-- foreignKey2
+`status_id` INT(2) NOT NULL,	-- foreignKey2
 `employee_id` INT(8) NOT NULL,  -- foreignKey3
 `deleted` TINYINT(1) NOT NULL DEFAULT 0,
 PRIMARY KEY(`id`),
@@ -76,7 +79,7 @@ CONSTRAINT `tbl_employees_fk2` FOREIGN KEY (`employee_id`) REFERENCES `tbl_emplo
 
 -- TABLE: EMPLOYEE_METADATA
 CREATE TABLE tbl_employee_metadata (
-`employee_id` INT(8) NOT NULL,  -- foreignKey1
+`employee_id` INT(8) NOT NULL,  	-- foreignKey1
 `username` VARCHAR(128) NOT NULL,
 `password`VARCHAR(128) NOT NULL,
 KEY `tbl_employees_fk3` (`employee_id`),
@@ -91,3 +94,6 @@ ADD COLUMN `employee_id` INT(8) NOT NULL,
 ADD FOREIGN KEY `tbl_employees_fk1`(`employee_id`)
 REFERENCES `tbl_employees`(`id`);
 */
+
+ALTER TABLE tbl_projects
+ADD CONSTRAINT unique_project_code UNIQUE (project_code);
