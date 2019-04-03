@@ -64,6 +64,19 @@ curl -X POST \
 	"joiningDate":"2019-01-14"
 }'
 
+curl -X POST \
+  http://localhost:8080/employees \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+  -H 'postman-token: 4c8f619c-7f15-3b43-0af6-e86ba4fdbc95' \
+  -d '{	"name":"Sachin Poojari",
+	"designation":"Associate Technology",
+	"platform":"Java Backend",
+	"email":"sachin.poojari@gmail.com",
+	"projectCode":"ICG_VST_LF",
+	"joiningDate":"2017-01-14"
+}'
+
 2) GET EMPLOYEE - GET API (GET EMPLOYEE BY EMPLOYEE_ID)
 curl -X GET \
   'http://localhost:8080/employees?id=1' \
